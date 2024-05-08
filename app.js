@@ -22,7 +22,7 @@ app.use((req, res, next) => {
 app.set('view engine', 'ejs');
 
 // database connection
-const dbURI = ('mongodb+srv://test:password255@cluster0.i4qvf4o.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0');
+const dbURI = ('mongodb+srv://testUser:pass1234@nodeauthtutorial.osde3dd.mongodb.net/?retryWrites=true&w=majority&appName=nodeAuthTutorial');
 mongoose.connect(dbURI)
     .then((result) => app.listen(3000))
     .catch((err) => console.log(err));
