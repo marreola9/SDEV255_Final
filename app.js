@@ -22,19 +22,24 @@ app.use((req, res, next) => {
 app.set('view engine', 'ejs');
 
 // database connection
-const dbURI = ('mongodb+srv://testUser:pass1234@nodeauthtutorial.osde3dd.mongodb.net/?retryWrites=true&w=majority&appName=nodeAuthTutorial');
+const dbURI = ('mongodb+srv://test:password255@cluster0.i4qvf4o.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0');
 mongoose.connect(dbURI)
     .then((result) => app.listen(3000))
     .catch((err) => console.log(err));
 
 // routes
 app.use(checkUser);
+console.log('Made it to spoot 1');
 app.get('/', (req, res) => res.render('home'));
+console.log('Made it to spoot 2');
 app.get('/create', requireAuth, (req,res) => res.render('create'));
+console.log('Made it to spoot 3');
 
 app.use(authRoutes);
+console.log('Made it to spoot 5');
 app.use('/courses', requireAuth,courseRoutes);
 app.use('/cart', requireAuth, cartRoutes);
+console.log('Made it to spoot 6');
 
 // 404 page
 app.use((req, res) => {
